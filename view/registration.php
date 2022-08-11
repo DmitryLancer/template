@@ -1,3 +1,6 @@
+<?php
+?>
+
 <html>
 
 <head>
@@ -39,8 +42,8 @@
         <input type='number' required placeholder='Возраст №2' name='age2'>
     </label>
     <br>
-        <br>
-        <input type='submit' value='Отправить'>
+    <br>
+    <input type='submit' value='Отправить'>
 
 </form>
 <br>
