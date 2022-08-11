@@ -1,3 +1,6 @@
+<?php
+?>
+
 <html>
 
 <head>
@@ -7,7 +10,7 @@
 
 <body>
 <form action='post.php' method='post'>
-     <p>Заголовок</p>
+    <p>Заголовок</p>
     <label>
         <input type='text' size='40' required placeholder='Не менее 2 и не более 50 символов!' name='header'>
     </label>
@@ -18,7 +21,7 @@
     </label>
     <br><br><br>
 
-        <input type='submit' value='Отправить'>
+    <input type='submit' value='Отправить'>
 
 </form>
 <br>
