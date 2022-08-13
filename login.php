@@ -12,25 +12,8 @@ if(empty($_POST)) {
             //при наличиек ошибки выводит ее
             print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage
         }
-//$data = array('login' => $login, 'password' => $password);
-//    $query = $db->prepare("SELECT login, password FROM messages WHERE login = :login and password = :password");
-//
-//    $query->execute($data);
-//    $result = $query->fetchAll();
-//    //var_dump($data);
-//    $nnn = 0;
-//    if (count($result)) {
-//
-//        foreach($result as $row) {
-//            $nnn = 1;
-//        }
-//    } else {
-//        echo "Ошибка логина!";
-//    }
-//    if($nnn == 1) {
-//        print_r($data['login']);
-//        echo '! Вы успешно прошли авторизацию!';
-//    }
+
+
     $data1 = array('login' => $login);
     $query = $db -> prepare("SELECT login FROM messages WHERE login = :login");
     $query->execute($data1);
@@ -64,9 +47,6 @@ if(empty($_POST)) {
         echo '! Вы успешно прошли авторизацию!';
     }
 }
-
-//ооп, 10-11
-
 
 
 ?>

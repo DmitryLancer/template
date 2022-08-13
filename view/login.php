@@ -11,7 +11,7 @@
 </head>
 
 <body>
-<form action='../input.php' method='post'>
+<form action='../login.php' method='post'>
     <label>
         <input type='text' required placeholder='Логин' name='login'>
     </label>

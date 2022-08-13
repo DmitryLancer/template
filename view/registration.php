@@ -49,7 +49,7 @@
 <br>
 <br>
 <br>
-<a href="../input.php">Уже зарегистрирован!</a><br><br><br>
+<a href="../login.php">Уже зарегистрирован!</a><br><br><br>
 <a href="../post.php">Напишем пост?</a>
 </body>
 </html>

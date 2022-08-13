@@ -12,11 +12,11 @@ if(empty($_POST)) {
 
         if(strlen($header) > 50 || strlen($header) < 2) {
             echo "Заголовок не может быть меньше 2 или больше 50 символов!";
-            include 'post.html';
+            include 'view/post.php';
         }
         elseif(strlen($fast) > 250 || strlen($fast) < 10) {
         echo "Пост не может быть меньше 10 или больше 250 символов!";
-        include 'post.html';
+            include 'view/post.php';
         }
 
         elseif ($header!= '') {
