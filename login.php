@@ -15,7 +15,7 @@ if(empty($_POST)) {
 
 
     $data1 = array('login' => $login);
-    $query = $db -> prepare("SELECT login FROM messages WHERE login = :login");
+    $query = $db -> prepare("SELECT login FROM users WHERE login = :login");
     $query->execute($data1);
     $result = $query -> fetchAll();
     //var_dump($data);
@@ -30,7 +30,7 @@ if(empty($_POST)) {
     }
 
     $data2 = array('password' => $password);
-    $query = $db -> prepare("SELECT password FROM messages WHERE password = :password");
+    $query = $db -> prepare("SELECT password FROM users WHERE password = :password");
     $query -> execute($data2);
     $result = $query -> fetchAll();
     echo '<br>';
