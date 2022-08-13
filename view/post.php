@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<form action='post.php' method='post'>
+<form action='../post.php' method='post'>
     <p>Заголовок</p>
     <label>
         <input type='text' size='40' required placeholder='Не менее 2 и не более 50 символов!' name='header'>

@@ -2,7 +2,7 @@
 
 
 if(empty($_POST)) {
-    include 'index.html';
+    include 'view/registration.php';
 } else {
 
 

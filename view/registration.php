@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<form action='index.php' method='post'>
+<form action='../index.php' method='post'>
     <label>
         <input type='text' required placeholder='Логин №1' name='login1'>
     </label>
@@ -49,7 +49,7 @@
 <br>
 <br>
 <br>
-<a href="input.html">Уже зарегистрирован!</a><br><br><br>
-<a href="post.html">Напишем пост?</a>
+<a href="../input.php">Уже зарегистрирован!</a><br><br><br>
+<a href="../post.php">Напишем пост?</a>
 </body>
 </html>
