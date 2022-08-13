@@ -2,7 +2,7 @@
 
 
 if(empty($_POST)) {
-    include 'post.html';
+    include 'view/post.php';
 } else {
 
 

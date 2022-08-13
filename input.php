@@ -1,7 +1,7 @@
 <?php
 
 if(empty($_POST)) {
-    include 'input.html';
+    include 'view/login.php';
 } else {
     $login = !empty($_POST['login']) ? $_POST['login'] : '';
     $password = !empty($_POST['password']) ? $_POST['password'] : '';
