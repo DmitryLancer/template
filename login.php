@@ -7,7 +7,7 @@ if(empty($_POST)) {
     $password = !empty($_POST['password']) ? $_POST['password'] : '';
         try {
             //подключение к БД
-            $db = new PDO('mysql:host=localhost; dbname=itrem', 'root', 'root');
+            $db = new PDO('mysql:host=localhost; dbname=template', 'root', 'root');
         } catch (PDOException $e) {
             //при наличиек ошибки выводит ее
             print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage

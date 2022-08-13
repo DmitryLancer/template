@@ -22,7 +22,7 @@ if(empty($_POST)) {
         elseif ($header!= '') {
             try {
                 //подключение к БД
-                $db = new PDO('mysql:host=localhost;dbname=itrem', 'root', 'root');
+                $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
             } catch (PDOException $e) {
                 //при наличиек ошибки выводит ее
                 print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage

@@ -38,7 +38,7 @@ if(empty($_POST)) {
 
         try {
             //подключение к БД
-            $db = new PDO('mysql:host=localhost;dbname=itrem', 'root', 'root');
+            $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
         } catch (PDOException $e) {
             //при наличиек ошибки выводит ее
             print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage
@@ -49,9 +49,9 @@ if(empty($_POST)) {
                 ['login' => $login2, 'password' => $password2, 'age' => $age2]
             ];
         // подготавливаем SQL-запрос
-        $query = $db->prepare("INSERT INTO new (login, password, age) values (:login, :password, :age)");
+        $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
         $query->execute($data[0]);
-        $query = $db->prepare("INSERT INTO new (login, password, age) values (:login, :password, :age)");
+        $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
         $query->execute($data[1]);
         if ($data) {
             echo " Вы успешно зарегистрировались!";
