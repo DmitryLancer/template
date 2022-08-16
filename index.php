@@ -18,9 +18,9 @@ include_once __DIR__ . '/controller/RegistrationController.php';
 
 
 if(empty($_POST)) {
-    require __DIR__ . '/controller/LoginController.php';
-    $RegistrationController = new \controller\LoginController();
-    $RegistrationController->actionLogin();
+    require __DIR__ . '/controller/RegistrationController.php';
+    $RegistrationController = new \controller\RegistrationController();
+    $RegistrationController->actionRegistration();
 
 }
 
