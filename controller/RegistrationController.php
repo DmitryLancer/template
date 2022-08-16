@@ -10,8 +10,10 @@ class RegistrationController
     public function actionIndex()
     {
 
-        if (empty($_POST)) {
-            include '../view/registration.php';
+
+
+        if (empty($_POST['action'])) {
+            include __DIR__ . '../view/registration.php';
         } else {
 
 
@@ -25,16 +27,16 @@ class RegistrationController
             $age2 = !empty($_POST['age2']) ? $_POST['age2'] : '';
             if (strlen($password1) < 6) {
                 echo "Пароль №1 содержит меньше 6 символов!";
-                include '../view/registration.php';
+                include __DIR__ . '../view/registration.php';
             } elseif (strlen($password2) < 6) {
                 echo "Пароль №2 содержит меньше 6 символов!";
-                include '../view/registration.php';
+                include __DIR__ . '../view/registration.php';
             } elseif ($repeatPassword1 != $password1) {
                 echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
-                include '../view/registration.php';
+                include __DIR__ . '../view/registration.php';
             } elseif ($repeatPassword2 != $password2) {
                 echo "Пароли №2 не совпадают, пожалуйста, заполните форму еще раз!";
-                include '../view/registration.php';
+                include __DIR__ . '../view/registration.php';
             } elseif ($age1 < 18 && $age2 < 18) {
                 echo 'Кому-то сюда нельзя!';
             } else {
@@ -78,3 +80,4 @@ class RegistrationController
 <!---->
 <!--</body>-->
 <!--</html>-->
+

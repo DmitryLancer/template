@@ -44,6 +44,7 @@
     <br>
     <br>
     <input type='submit' value='Отправить'>
+    <input type="hidden" value="registration" name="action">
 
 </form>
 <br>
