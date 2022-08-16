@@ -7,10 +7,22 @@
 //});
 
 
+//if(empty($_POST)) {
+//    include __DIR__ . 'controller/RegistrationController.php';
+//    $RegistrationController = new \controller\RegistrationController();
+//    $RegistrationController->actionIndex();
+//
+//}
+
+include_once __DIR__ . '/controller/RegistrationController.php';
+
+
 if(empty($_POST)) {
-    include __DIR__ . 'controller/RegistrationController.php';
-    $RegistrationController = new \controller\RegistrationController();
-    $RegistrationController->actionIndex();
+    require __DIR__ . '/controller/LoginController.php';
+    $RegistrationController = new \controller\LoginController();
+    $RegistrationController->actionLogin();
 
 }
+
+
 
