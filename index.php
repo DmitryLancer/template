@@ -9,7 +9,7 @@
 
 if(empty($_POST)) {
     include __DIR__ . 'controller/RegistrationController.php';
-    $RegistrationController = new \controller\RegistrationControllerr();
+    $RegistrationController = new \controller\RegistrationController();
     $RegistrationController->actionIndex();
 
 }
