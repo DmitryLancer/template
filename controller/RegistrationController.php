@@ -2,6 +2,8 @@
 
 namespace controller;
 
+use PDO;
+
 class RegistrationController
 {
 
