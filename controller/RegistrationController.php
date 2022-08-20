@@ -19,23 +19,13 @@ class RegistrationController
             $password1 = !empty($_POST['password1']) ? $_POST['password1'] : '';
             $repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
             $age1 = !empty($_POST['age1']) ? $_POST['age1'] : '';
-            $login2 = !empty($_POST['login2']) ? $_POST['login2'] : '';//тернарный оператор
-            $password2 = !empty($_POST['password2']) ? $_POST['password2'] : '';
-            $repeatPassword2 = !empty($_POST['repeatPassword2']) ? $_POST['repeatPassword2'] : '';
-            $age2 = !empty($_POST['age2']) ? $_POST['age2'] : '';
             if (strlen($password1) < 6) {
                 echo "Пароль №1 содержит меньше 6 символов!";
                 include __DIR__ . '../view/registration.php';
-            } elseif (strlen($password2) < 6) {
-                echo "Пароль №2 содержит меньше 6 символов!";
-                include __DIR__ . '../view/registration.php';
-            } elseif ($repeatPassword1 != $password1) {
+            }  elseif ($repeatPassword1 != $password1) {
                 echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
                 include __DIR__ . '../view/registration.php';
-            } elseif ($repeatPassword2 != $password2) {
-                echo "Пароли №2 не совпадают, пожалуйста, заполните форму еще раз!";
-                include __DIR__ . '../view/registration.php';
-            } elseif ($age1 < 18 && $age2 < 18) {
+            }  elseif ($age1 < 18) {
                 echo 'Кому-то сюда нельзя!';
             } else {
                 echo 'Привет!';
@@ -50,13 +40,10 @@ class RegistrationController
                 // собираем данные для запроса
                 $data = [
                     ['login' => $login1, 'password' => $password1, 'age' => $age1],
-                    ['login' => $login2, 'password' => $password2, 'age' => $age2]
                 ];
                 // подготавливаем SQL-запрос
                 $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
                 $query->execute($data[0]);
-                $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
-                $query->execute($data[1]);
                 if ($data) {
                     echo " Вы успешно зарегистрировались!";
                 }

@@ -26,25 +26,10 @@
         <input type='number' required placeholder='Возраст №1' name='age1'>
     </label>
     <br>
-    <label>
-        <input type='text' required placeholder='Логин №2' name='login2'>
-    </label>
-    <br>
-    <label>
-        <input type='password' required placeholder='Пароль №2 не менее 6 символов' name='password2'>
-    </label>
-    <br>
-    <label>
-        <input type='password' required placeholder='Повторите пароль №2' name='repeatPassword2'>
-    </label>
-    <br>
-    <label>
-        <input type='number' required placeholder='Возраст №2' name='age2'>
-    </label>
     <br>
     <br>
     <input type='submit' value='Отправить'>
-    <input type="hidden" value="registration" name="action">
+<!--    <input type="hidden" value="registration" name="action">-->
 
 </form>
 <br>
