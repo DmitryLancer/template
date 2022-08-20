@@ -7,7 +7,22 @@ use PDO;
 class RegistrationController
 {
 
+//    public function actionIndex()
+//    {
+//        include __DIR__ . '/../view/registration.php';
+//        require_once __DIR__ . '/../model/User.php';
+//        $user = new \model\User();
+//
+//        $user->login1 = $this->cleanParameters('login1');
+//        $user->password1 = $this->cleanParameters('password1');
+//        $user->RepeatPassword1 = $this->cleanParameters('RepeatPassword1');
+//        $user->age1 = $this->cleanParameters('age1');
+//
+//
+//
+//    }
 
+//// СТАРЬЕ НИЖЕ
     public function actionRegistration()
     {
         if (empty($_POST)) {
@@ -22,10 +37,10 @@ class RegistrationController
             if (strlen($password1) < 6) {
                 echo "Пароль №1 содержит меньше 6 символов!";
                 include __DIR__ . '../view/registration.php';
-            }  elseif ($repeatPassword1 != $password1) {
+            } elseif ($repeatPassword1 != $password1) {
                 echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
                 include __DIR__ . '../view/registration.php';
-            }  elseif ($age1 < 18) {
+            } elseif ($age1 < 18) {
                 echo 'Кому-то сюда нельзя!';
             } else {
                 echo 'Привет!';
