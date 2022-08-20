@@ -31,7 +31,7 @@ $user = new \model\User();
 
                 if ($repeatPassword1 != $password1) {
                     echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
-                include __DIR__ . '/../view/registration.php';
+//                include __DIR__ . '/../view/registration.php';
                 } elseif ($age1 < 18) {
                     echo 'Кому-то сюда нельзя!';
                 } else {

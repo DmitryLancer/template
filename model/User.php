@@ -14,8 +14,10 @@ class User
 
     public function isLoginValid()
     {
-        if (empty($_POST['login1'])) {
-            echo 'чего ты охуел что ли?)) ';
+        if (($_POST['login1'])) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -28,7 +30,7 @@ class User
 
     public function isPassword1Valid()
     {
-        if (mb_strlen($this->password1) > 6) {
+        if (mb_strlen($this->password1) < 6) {
             return false;
         } else {
             return true;
