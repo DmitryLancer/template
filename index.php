@@ -16,13 +16,14 @@
 
 //include_once __DIR__ . '/controller/RegistrationController.php';
 
-if(empty($_POST)) {
-    require __DIR__ . '/controller/RegistrationController.php';
-    $RegistrationController = new \controller\RegistrationController();
-    $RegistrationController->actionRegistration();
+//if(empty($_POST)) {
+//    require __DIR__ . '/controller/RegistrationController.php';
+//    $RegistrationController = new \controller\RegistrationController();
+//    $RegistrationController->actionRegistration();
+//
+//}
 
-}
-
+ require_once __DIR__ . '/controller/RegistrationController.php';
 
 
 
