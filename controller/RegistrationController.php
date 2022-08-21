@@ -39,9 +39,7 @@ $user->age1 = cleanParameters('age1');
 
                 if ($repeatPassword1 != $password1) {
                     echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
-//                include __DIR__ . '/../view/registration.php';
-                } elseif ($age1 < 18) {
-                    echo 'Кому-то сюда нельзя!';
+                    include __DIR__ . '/../view/registration.php';
                 } else {
                     echo 'Привет!';
 

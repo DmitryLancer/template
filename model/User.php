@@ -46,7 +46,7 @@ class User
 
     public function isAge1Valid()
     {
-        if (mb_strlen($this->age1) > 18) {
+        if (mb_strlen($this->age1) < 18) {
             return false;
         } else {
             return true;
