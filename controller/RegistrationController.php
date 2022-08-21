@@ -4,17 +4,25 @@ if (empty($_POST)) {
     include __DIR__ . '/../view/registration.php';
 }
 
-
+function cleanParameters($value)
+{
+    return filter_var(trim($_POST[$value]), FILTER_SANITIZE_STRING);
+}
 
 require_once __DIR__ . '/../model/User.php';
 
 $user = new \model\User();
 
+$user->login1 = cleanParameters('login1');
+$user->password1 = cleanParameters('password1');
+$user->repeatpassword1 = cleanParameters('repeatPassword1');
+$user->age1 = cleanParameters('age1');
+
             if (!empty($_POST)) {
                 if (empty($_POST)) {
                     echo 'Заполните логин';
                 } else {
-                    if ($user->isPassword1Valid()) {
+                    if (!$user->isPassword1Valid()) {
                         echo "Пароль №1 содержит меньше 6 символов!";
                         include __DIR__ . '/../view/registration.php';
                     } else {
@@ -54,7 +62,6 @@ $user = new \model\User();
                     if ($data) {
                         echo " Вы успешно зарегистрировались!";
                     }
-
                 }
             }
         
