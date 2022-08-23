@@ -10,17 +10,25 @@ require_once __DIR__ . '/../model/User.php';
 $user = new \model\User();
 
 $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
-$user->password1 = $_POST['password1'];
+$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+
+if (!empty($_POST['password1'])) {
+    $user->password1 = $_POST['password1'];
+} else {
+    $user->password1 = '';
+}
 $user->repeatpassword1 = $_POST['repeatPassword1'];
 $user->age1 = $_POST['age1'];
 
-if ($_POST['password1']) {
-    if (!$user->isPassword1Valid()) {
-        echo "Пароль №1 содержит меньше 6 символов!";
-    }
-}
 
-if ($user->isPassword1Valid()) {
+//if ($repeatPassword1 != $password1) {
+////                    echo "Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!";
+////                    include __DIR__ . '/../view/registration.php';
+
+
+if (!$user->isPassword1Valid()) {
+    echo "Пароль №1 содержит меньше 6 символов!";
+} else {
     $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
 
     // собираем данные для запроса
@@ -34,6 +42,11 @@ if ($user->isPassword1Valid()) {
         echo " Вы успешно зарегистрировались!";
     }
 }
+
+
+
+
+
 
 
 //            if (!empty($_POST)) {
