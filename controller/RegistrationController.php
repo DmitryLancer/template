@@ -12,6 +12,7 @@ $user = new \model\User();
 $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
 $user->age1 = $_POST['age1'];
 $user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+
 //$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
 
 if (!empty($_POST['password1'])) { /// должен быть password1 или login1? ???
@@ -31,6 +32,10 @@ if (!empty($_POST)) {
     } else {
         if (!$user->isRepeatPassword1()) {
             echo 'Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!';
+        } else {
+            if (!$user->isAge1Valid()) {
+                echo 'Вам меньше 18 лет!';
+            }
         }
     }
 }
@@ -38,7 +43,7 @@ if (!empty($_POST)) {
 
 //$user->repeatpassword1 = $_POST['repeatPassword1'];
 
-if ($user->isPassword1Valid() && $user->isRepeatPassword1()) {
+if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
     $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
 
     // собираем данные для запроса
