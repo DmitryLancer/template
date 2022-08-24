@@ -10,10 +10,14 @@ require_once __DIR__ . '/../model/User.php';
 $user = new \model\User();
 
 $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
-$user->age1 = $_POST['age1'];
 $user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+$user->age1 = !empty($_POST['age1']) ? $_POST['age1'] : '';
 
 //$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+
+
+
+
 
 if (!empty($_POST['password1'])) { /// должен быть password1 или login1? ???
     $user->password1 = $_POST['password1'];
@@ -41,7 +45,6 @@ if (!empty($_POST)) {
 }
 
 
-//$user->repeatpassword1 = $_POST['repeatPassword1'];
 
 if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
     $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
@@ -57,6 +60,10 @@ if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Vali
         echo " Вы успешно зарегистрировались!";
     }
 }
+
+//$user->repeatpassword1 = $_POST['repeatPassword1'];
+
+
 
 
 

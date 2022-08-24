@@ -9,8 +9,7 @@ class User
     public $password1;
     public $repeatPassword1;
     public $age1;
-
-//$login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
+    
 
     public function isLoginValid()
     {
@@ -20,13 +19,6 @@ class User
             return false;
         }
     }
-
-//        if (empty($_POST['login1']) {
-//            '';
-//        }
-//
-//    }
-
 
     public function isPassword1Valid()
     {
@@ -48,7 +40,7 @@ class User
 
     public function isAge1Valid()
     {
-        if (mb_strlen($this->age1) < 18) {
+        if ($this->age1 < 18) {
             return false;
         } else {
             return true;
