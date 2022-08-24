@@ -24,8 +24,8 @@ if (!empty($_POST)) {
     if (!$user->isPassword1Valid()) {
         echo "Пароль №1 содержит меньше 6 символов!";
     } else {
-        if ($_POST['repeatPassword1'] != $_POST['password1']) {
-            echo 'Пароли не совпадают';
+        if (!$user->isRepeatPassword1()) {
+            echo 'Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!';
         }
     }
 }
@@ -33,7 +33,7 @@ if (!empty($_POST)) {
 
 //$user->repeatpassword1 = $_POST['repeatPassword1'];
 
-if ($user->isPassword1Valid()) {
+if ($user->isPassword1Valid() && $user->isRepeatPassword1()) {
     $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
 
     // собираем данные для запроса

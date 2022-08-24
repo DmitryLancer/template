@@ -37,12 +37,14 @@ class User
         }
     }
 
-//    public function isRepeatPassword1()
-//    {
-//        if (mb_strlen(($this->repeatPassword1 != ($this->$password1))  {
-//            echo 'Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!';
-//        }
-//    }
+    public function isRepeatPassword1()
+    {
+        if ($this->repeatPassword1 != $this->password1)  {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
     public function isAge1Valid()
     {
