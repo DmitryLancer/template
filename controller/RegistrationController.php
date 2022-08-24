@@ -11,7 +11,7 @@ $user = new \model\User();
 
 $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
 $user->age1 = $_POST['age1'];
-//$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
 //$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
 
 if (!empty($_POST['password1'])) { /// должен быть password1 или login1? ???
@@ -19,6 +19,11 @@ if (!empty($_POST['password1'])) { /// должен быть password1 или lo
 } else {
     $user->password1 = '';
 }
+
+
+
+
+
 // elseif ($repeatPassword2 != $password2){
 if (!empty($_POST)) {
     if (!$user->isPassword1Valid()) {
