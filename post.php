@@ -8,13 +8,17 @@ if(empty($_POST)) {
 
     $header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
     $fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
+    $post = new \model\Post();
 
-
-        if(strlen($header) > 50 || strlen($header) < 2) {
+//        if(strlen($header) > 50 || strlen($header) < 2) {
+//            echo "Заголовок не может быть меньше 2 или больше 50 символов!";
+//            include 'view/post.php';
+//        } elseif
+        if (!$post->strHeader()) {
             echo "Заголовок не может быть меньше 2 или больше 50 символов!";
-            include 'view/post.php';
         }
-        elseif(strlen($fast) > 250 || strlen($fast) < 10) {
+    
+        if(strlen($fast) > 250 || strlen($fast) < 10) {
         echo "Пост не может быть меньше 10 или больше 250 символов!";
             include 'view/post.php';
         }
