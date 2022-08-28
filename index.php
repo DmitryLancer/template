@@ -50,6 +50,8 @@ switch ($url) {
         break;
     case '/index.php/post/add':
         require_once __DIR__ . '/controller/PostController.php';
+        $postController = new \controller\PostController();
+        $postController->actionPostAdd();
         break;
 }
 
