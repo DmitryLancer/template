@@ -31,14 +31,22 @@
 //        $postController->actionIndex();
 //    }
 //}
+
+
+
+
 $url = $_SERVER['REQUEST_URI'];
 
 switch ($url) {
     case '/':
         require_once __DIR__ . '/controller/RegistrationController.php';
+        $registrationController = new \controller\RegistrationController();
+        $registrationController->actionRegistration();
         break;
     case '/index.php/registration':
         require_once __DIR__ . '/controller/RegistrationController.php';
+        $registrationController = new \controller\RegistrationController();
+        $registrationController->actionRegistration();
         break;
     case '/index.php/post/add':
         require_once __DIR__ . '/controller/PostController.php';
