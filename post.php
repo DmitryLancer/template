@@ -28,7 +28,7 @@ if(empty($_POST)) {
     }
 
 
-        if (!$post->strHeader() && !$post->strFast()) {
+        if ($post->strHeader() && $post->strFast()) {
 
                 //подключение к БД
             $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
