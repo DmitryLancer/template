@@ -28,9 +28,9 @@ class Post
     {
 
         if (strlen($this->header) > 50 || strlen($this->header) < 2) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
 
     }
@@ -40,9 +40,9 @@ class Post
     {
 
         if (strlen($this->fast) > 250 || strlen($this->fast) < 10) {
-            return true;
-        } else {
             return false;
+        } else {
+            return true;
         }
 
     }
