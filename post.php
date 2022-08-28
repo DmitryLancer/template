@@ -8,6 +8,8 @@ if(empty($_POST)) {
 
     $header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
     $fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
+
+    require_once __DIR__ . '/model/Post.php';
     $post = new \model\Post();
 
 //        if(strlen($header) > 50 || strlen($header) < 2) {

@@ -28,8 +28,9 @@ class Post
     {
 
         if (strlen($this->header) > 50 || strlen($this->header) < 2) {
-            echo "Заголовок не может быть меньше 2 или больше 50 символов!";
-            include 'view/post.php';
+            return true;
+        } else {
+            return false;
         }
 
     }
