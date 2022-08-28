@@ -39,7 +39,11 @@ class Post
     public function strFast()
     {
 
-
+        if (strlen($this->fast) > 250 || strlen($this->fast) < 10) {
+            return true;
+        } else {
+            return false;
+        }
 
     }
 

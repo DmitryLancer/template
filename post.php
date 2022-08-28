@@ -3,7 +3,7 @@
 
 if(empty($_POST)) {
     include 'view/post.php';
-} else {
+}
 
 
     $header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
@@ -16,25 +16,25 @@ if(empty($_POST)) {
 //            echo "Заголовок не может быть меньше 2 или больше 50 символов!";
 //            include 'view/post.php';
 //        } elseif
+    if (!empty($_POST)) {
         if (!$post->strHeader()) {
             echo "Заголовок не может быть меньше 2 или больше 50 символов!";
-        }
-    
-        if(strlen($fast) > 250 || strlen($fast) < 10) {
-        echo "Пост не может быть меньше 10 или больше 250 символов!";
-            include 'view/post.php';
+        } else {
+            if(!$post->strFast()) {
+                echo "Пост не может быть меньше 10 или больше 250 символов!";
+            }
         }
 
-        elseif ($header!= '') {
-            try {
+    }
+
+
+        if (!$post->strHeader() && !$post->strFast()) {
+
                 //подключение к БД
-                $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
-            } catch (PDOException $e) {
-                //при наличиек ошибки выводит ее
-                print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage
-            }
+            $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
+
             // собираем данные для запроса
-            $data = array('header' => $header, 'fast' => $fast);
+            $data = array('header' => $post->header, 'fast' => $post->fast);
             // подготавливаем SQL-запрос
             $query = $db->prepare("INSERT INTO post (header, fast) values (:header, :fast)");
             // выполняем запрос с данными
@@ -42,9 +42,27 @@ if(empty($_POST)) {
             if ($data) {
                 echo " Ваш пост сохранен!";
             }
-        }
+    }
 
-}
+
+
+
+
+//if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
+//    $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
+//
+//    // собираем данные для запроса
+//    $data = [
+//        ['login' => $user->login1, 'password' => $user->password1, 'age' => $user->age1],
+//    ];
+//    // подготавливаем SQL-запрос
+//    $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
+//    $query->execute($data[0]);
+//    if ($data) {
+//        echo " Вы успешно зарегистрировались!";
+//    }
+//}
+
 
 
 ?>
