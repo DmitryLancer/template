@@ -23,7 +23,31 @@
 //
 //}
 
- require_once __DIR__ . '/controller/RegistrationController.php';
+
+//if (!empty($_POST['action'])) {
+//    if ($_POST['action'] == 'post') {
+//        include_once __DIR__ . '/controller/PostController.php';
+//        $postController = new \controller\PostController();
+//        $postController->actionIndex();
+//    }
+//}
+$url = $_SERVER['REQUEST_URI'];
+
+switch ($url) {
+    case '/':
+        require_once __DIR__ . '/controller/RegistrationController.php';
+        break;
+    case '/index.php/registration':
+        require_once __DIR__ . '/controller/RegistrationController.php';
+        break;
+    case '/index.php/post/add':
+        require_once __DIR__ . '/controller/PostController.php';
+        break;
+}
+
+var_dump($_SERVER['REQUEST_URI']);
+
+
 
 
 

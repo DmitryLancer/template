@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<form action='../index.php' method='post'>
+<form action='../index.php/registration' method='post'>
     <label>
         <input type='text' required placeholder='Логин №1' name='login1'>
     </label>
@@ -29,13 +29,12 @@
     <br>
     <br>
     <input type='submit' value='Отправить'>
-<!--    <input type="hidden" value="registration" name="action">-->
+
 
 </form>
 <br>
 <br>
 <br>
 <a href="../login.php">Уже зарегистрирован!</a><br><br><br>
-<a href="../post.php">Напишем пост?</a>
 </body>
 </html>

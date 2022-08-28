@@ -47,22 +47,6 @@ if ($post->strHeader() && $post->strFast()) {
 
 
 
-//if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
-//    $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
-//
-//    // собираем данные для запроса
-//    $data = [
-//        ['login' => $user->login1, 'password' => $user->password1, 'age' => $user->age1],
-//    ];
-//    // подготавливаем SQL-запрос
-//    $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
-//    $query->execute($data[0]);
-//    if ($data) {
-//        echo " Вы успешно зарегистрировались!";
-//    }
-//}
-
-
 
 ?>
 <html>
