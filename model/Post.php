@@ -27,19 +27,19 @@ class Post
     public function strHeader()
     {
 
-        if (strlen($this->header) > 50 || strlen($this->header) < 2) {
+        if (strlen($this->header) < 2 || strlen($this->header) > 50) {
             return false;
         } else {
             return true;
         }
 
     }
-
+    
 
     public function strFast()
     {
 
-        if (strlen($this->fast) > 250 || strlen($this->fast) < 10) {
+        if (strlen($this->fast) < 10 || strlen($this->fast) > 250) {
             return false;
         } else {
             return true;
