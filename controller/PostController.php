@@ -5,12 +5,13 @@ if(empty($_POST)) {
     include '../view/post.php';
 }
 
+require_once __DIR__ . '/../model/Post.php';
+$post = new \model\Post();
 
 $header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
 $fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
 
-require_once __DIR__ . '/../model/Post.php';
-$post = new \model\Post();
+
 
 
 if (!empty($_POST)) {
