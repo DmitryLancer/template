@@ -1,4 +1,5 @@
 <?php
+
 ?>
 
 
@@ -11,7 +12,7 @@
 </head>
 
 <body>
-<form action='../login.php' method='post'>
+<form action='../index.php/login' method='post'>
     <label>
         <input type='text' required placeholder='Логин' name='login'>
     </label>

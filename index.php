@@ -53,6 +53,11 @@ switch ($url) {
         $postController = new \controller\PostController();
         $postController->actionPostAdd();
         break;
+    case '/index.php/login':
+        require_once __DIR__ . '/controller/LoginController.php';
+        $loginController = new \controller\LoginController();
+        $loginController->actionLogin();
+        break;
 }
 
 var_dump($_SERVER['REQUEST_URI']);

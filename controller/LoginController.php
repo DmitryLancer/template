@@ -8,9 +8,9 @@ class LoginController
     public function actionLogin()
     {
 
-
+        var_dump($_SERVER['REQUEST_URI']);
         if (empty($_POST)) {
-            include 'view/login.php';
+            include '../view/login.php';
         } else {
             $login = !empty($_POST['login']) ? $_POST['login'] : '';
             $password = !empty($_POST['password']) ? $_POST['password'] : '';
