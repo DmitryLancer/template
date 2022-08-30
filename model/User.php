@@ -47,5 +47,20 @@ class User
         }
     }
 
+    public function prepareInsertSQL()
+    {
+        $sql = 'INSERT INTO users (login1, password1, age) VALUES (:login1, :password1, :age)';
+        return $sql;
+    }
+    public function prepareParameters()
+    {
+        $parameters = [
+            'login1' => $this->login1,
+            'password1' => $this->password1,
+            'age' => $this->age,
+        ];
+        return $parameters;
+    }
+
 
 }
