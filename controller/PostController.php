@@ -2,6 +2,9 @@
 
 namespace controller;
 
+use PDO;
+
+
 class PostController
 {
 
@@ -14,8 +17,8 @@ class PostController
         require_once __DIR__ . '/../model/Post.php';
         $post = new \model\Post();
 
-        $header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
-        $fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
+        $post->header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
+        $post->fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
 
 
 
