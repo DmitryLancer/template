@@ -60,7 +60,6 @@ switch ($url) {
         break;
 }
 
-var_dump($_SERVER['REQUEST_URI']);
 
 
 

@@ -2,13 +2,14 @@
 
 namespace controller;
 
+use PDO;
+
 class LoginController
 {
     
     public function actionLogin()
     {
 
-        var_dump($_SERVER['REQUEST_URI']);
         if (empty($_POST)) {
             include '../view/login.php';
         } else {
@@ -56,7 +57,5 @@ class LoginController
                 echo '! Вы успешно прошли авторизацию!';
             }
         }
-        
-        
-
+    }
 }
