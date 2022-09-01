@@ -3,6 +3,7 @@
 namespace controller;
 
 
+use model\DataBase;
 use PDO;
 
 
@@ -19,6 +20,7 @@ class RegistrationController
         require_once __DIR__ . '/../model/User.php';
 
 
+
         $user = new \model\User();
 
         $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
@@ -26,6 +28,21 @@ class RegistrationController
         $user->age1 = !empty($_POST['age1']) ? $_POST['age1'] : '';
 
 //$user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
+
+
+        if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
+
+            require_once __DIR__ . '/../model/DataBase.php';
+
+
+            $database = new model\DataBase();
+            $sql = $user->prepareInsertSQL();
+            $parameters = $user->prepareParameters();
+            $database->execute($sql, $parameters);
+
+
+
+        }
 
 
         if (!empty($_POST['password1'])) { /// должен быть password1 или login1? ???
@@ -51,21 +68,20 @@ class RegistrationController
         }
 
 
-        if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
+//        $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
+//
+//        // собираем данные для запроса
+//        $data = [
+//            ['login' => $user->login1, 'password' => $user->password1, 'age' => $user->age1],
+//        ];
+//        // подготавливаем SQL-запрос
+//        $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
+//        $query->execute($data[0]);
+//        if ($data) {
+//            echo " Вы успешно зарегистрировались!";
+//        }
 
-            $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
 
-            // собираем данные для запроса
-            $data = [
-                ['login' => $user->login1, 'password' => $user->password1, 'age' => $user->age1],
-            ];
-            // подготавливаем SQL-запрос
-            $query = $db->prepare("INSERT INTO users (login, password, age) values (:login, :password, :age)");
-            $query->execute($data[0]);
-            if ($data) {
-                echo " Вы успешно зарегистрировались!";
-            }
-        }
     }
 }
 

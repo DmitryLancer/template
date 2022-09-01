@@ -33,9 +33,13 @@
 //}
 
 
+//$url = $_SERVER['REQUEST_URI'];
+
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
 
 
-$url = $_SERVER['REQUEST_URI'];
 
 switch ($url) {
     case '/':

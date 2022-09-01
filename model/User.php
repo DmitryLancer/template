@@ -49,15 +49,15 @@ class User
 
     public function prepareInsertSQL()
     {
-        $sql = 'INSERT INTO users (login1, password1, age) VALUES (:login1, :password1, :age)';
+        $sql = 'INSERT INTO users (login, password, age) VALUES (:login, :password, :age)';
         return $sql;
     }
     public function prepareParameters()
     {
         $parameters = [
-            'login1' => $this->login1,
-            'password1' => $this->password1,
-            'age' => $this->age,
+            'login' => $this->login1,
+            'password' => $this->password1,
+            'age' => $this->age1,
         ];
         return $parameters;
     }
