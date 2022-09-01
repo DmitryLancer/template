@@ -48,4 +48,19 @@ class Post
     }
 
 
+    public function prepareInsertSQL()
+    {
+        $sql = 'INSERT INTO post (header, fast) VALUES (:header, :fast)';
+        return $sql;
+    }
+    public function prepareParameters()
+    {
+        $parameters = [
+            'header' => $this->header,
+            'fast' => $this->fast,
+        ];
+        return $parameters;
+    }
+
+
 }

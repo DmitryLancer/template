@@ -2,6 +2,7 @@
 
 namespace controller;
 
+use model\DataBase;
 use PDO;
 
 
@@ -34,22 +35,31 @@ class PostController
 
         }
 
-
+//        //подключение к БД
+//        $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
+//
+//        // собираем данные для запроса
+//        $data = array('header' => $post->header, 'fast' => $post->fast);
+//        // подготавливаем SQL-запрос
+//        $query = $db->prepare("INSERT INTO post (header, fast) values (:header, :fast)");
+//        // выполняем запрос с данными
+//        $query->execute($data);
+//        if ($data) {
+//            echo " Ваш пост сохранен!";
+//        }
 
         if ($post->strHeader() && $post->strFast()) {
 
-            //подключение к БД
-            $db = new PDO('mysql:host=localhost;dbname=template', 'root', 'root');
+            require_once __DIR__ . '/../model/DataBase.php';
+            $database = new DataBase();
 
-            // собираем данные для запроса
-            $data = array('header' => $post->header, 'fast' => $post->fast);
-            // подготавливаем SQL-запрос
-            $query = $db->prepare("INSERT INTO post (header, fast) values (:header, :fast)");
-            // выполняем запрос с данными
-            $query->execute($data);
-            if ($data) {
-                echo " Ваш пост сохранен!";
-            }
+            $sql = $post->prepareInsertSQL();
+            $parameters = $post->prepareParameters();
+
+            $database->execute($sql, $parameters);
+
+            echo " Ваш пост сохранен!";
+
         }
     }
     }

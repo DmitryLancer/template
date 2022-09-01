@@ -54,7 +54,7 @@ class RegistrationController
             $database = new DataBase();
             $sql = $user->prepareInsertSQL();
             $parameters = $user->prepareParameters();
-            $database->execute($sql, $parameters);
+            $database->execute($sql, $parameters); // вот эту строчку трудно понять
 
             echo 'Вы успешно зарегистрировались!';
 
