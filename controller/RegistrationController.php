@@ -22,33 +22,33 @@ class RegistrationController
 
         $user = new \model\User();
 
-        $user->login1 = !empty($_POST['login1']) ? $_POST['login1'] : '';
-        $user->repeatPassword1 = !empty($_POST['repeatPassword1']) ? $_POST['repeatPassword1'] : '';
-        $user->age1 = !empty($_POST['age1']) ? $_POST['age1'] : '';
+        $user->login = !empty($_POST['login']) ? $_POST['login'] : '';
+        $user->repeatPassword = !empty($_POST['repeatPassword']) ? $_POST['repeatPassword'] : '';
+        $user->age = !empty($_POST['age']) ? $_POST['age'] : '';
 
 
-        if (!empty($_POST['password1'])) { 
-            $user->password1 = $_POST['password1'];
+        if (!empty($_POST['password'])) { 
+            $user->password = $_POST['password'];
         } else {
-            $user->password1 = '';
+            $user->password = '';
         }
 
         
         if (!empty($_POST)) {
-            if (!$user->isPassword1Valid()) {
+            if (!$user->isPasswordValid()) {
                 echo "Пароль №1 содержит меньше 6 символов!";
             } else {
-                if (!$user->isRepeatPassword1()) {
+                if (!$user->isRepeatPassword()) {
                     echo 'Пароли №1 не совпадают, пожалуйста, заполните форму еще раз!';
                 } else {
-                    if (!$user->isAge1Valid()) {
+                    if (!$user->isAgeValid()) {
                         echo 'Вам меньше 18 лет!';
                     }
                 }
             }
         }
 
-        if ($user->isPassword1Valid() && $user->isRepeatPassword1() && $user->isAge1Valid()) {
+        if ($user->isPasswordValid() && $user->isRepeatPassword() && $user->isAgeValid()) {
             require_once __DIR__ . '/../model/DataBase.php';
 
             $database = new DataBase();

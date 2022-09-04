@@ -11,19 +11,19 @@
 <body>
 <form action='../index.php/registration' method='post'>
     <label>
-        <input type='text' required placeholder='Логин №1' name='login1'>
+        <input type='text' required placeholder='Логин №1' name='login'>
     </label>
     <br>
     <label>
-        <input type='password' required placeholder='Пароль №1 не менее 6 символов' name='password1'>
+        <input type='password' required placeholder='Пароль №1 не менее 6 символов' name='password'>
     </label>
     <br>
     <label>
-        <input type='password' required placeholder='Повторите пароль №1' name='repeatPassword1'>
+        <input type='password' required placeholder='Повторите пароль №1' name='repeatPassword'>
     </label>
     <br>
     <label>
-        <input type='number' required placeholder='Возраст №1' name='age1'>
+        <input type='number' required placeholder='Возраст №1' name='age'>
     </label>
     <br>
     <br>

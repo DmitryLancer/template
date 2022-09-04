@@ -5,42 +5,44 @@ namespace model;
 class User
 {
 
-    public $login1;
-    public $password1;
-    public $repeatPassword1;
-    public $age1;
+    public $login;
+    public $password;
+    public $repeatPassword;
+    public $age;
     
 
     public function isLoginValid()
     {
-        if (($_POST['login1'])) {
+        if (($_POST['login'])) {
             return true;
         } else {
             return false;
         }
     }
 
-    public function isPassword1Valid()
+    public function isPasswordValid()
     {
-        if (mb_strlen($this->password1) < 6) {
+        if (mb_strlen($this->password) < 6) {
             return false;
         } else {
             return true;
         }
     }
 
-    public function isRepeatPassword1()
+    public function isRepeatPassword()
     {
-        if ($this->repeatPassword1 != $this->password1)  {
+        var_dump($this->repeatPassword);
+        var_dump($this->password);
+        if ($this->repeatPassword != $this->password)  {
             return false;
         } else {
             return true;
         }
     }
 
-    public function isAge1Valid()
+    public function isAgeValid()
     {
-        if ($this->age1 < 18) {
+        if ($this->age < 18) {
             return false;
         } else {
             return true;
@@ -55,9 +57,9 @@ class User
     public function prepareParameters()
     {
         $parameters = [
-            'login' => $this->login1,
-            'password' => $this->password1,
-            'age' => $this->age1,
+            'login' => $this->login,
+            'password' => $this->password,
+            'age' => $this->age,
         ];
         return $parameters;
     }

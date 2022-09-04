@@ -13,18 +13,16 @@ class LoginController
         if (empty($_POST)) {
             include '../view/login.php';
         } else {
-            $login = !empty($_POST['login']) ? $_POST['login'] : '';
+            require_once __DIR__ . '/../model/User.php';
+            $user = new \model\User();
+            $user->login = !empty($_POST['login']) ? $_POST['login'] : '';
             $password = !empty($_POST['password']) ? $_POST['password'] : '';
-            try {
+
                 //подключение к БД
-                $db = new PDO('mysql:host=localhost; dbname=template', 'root', 'root');
-            } catch (PDOException $e) {
-                //при наличиек ошибки выводит ее
-                print "Что-то пошло не так. Ошибка!: " . $e->getMessage() . "<br/>";//???getMessage
-            }
+            $db = new PDO('mysql:host=localhost; dbname=template', 'root', 'root');
 
 
-            $data1 = array('login' => $login);
+            $data1 = array('login' => $user->login);
             $query = $db->prepare("SELECT login FROM users WHERE login = :login");
             $query->execute($data1);
             $result = $query->fetchAll();
