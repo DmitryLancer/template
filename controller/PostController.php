@@ -3,6 +3,7 @@
 namespace controller;
 
 use model\DataBase;
+use model\Post;
 use PDO;
 
 
@@ -14,9 +15,8 @@ class PostController
         if(empty($_POST)) {
             include '../view/post.php';
         }
-
-        require_once __DIR__ . '/../model/Post.php';
-        $post = new \model\Post();
+        
+        $post = new Post();
 
         $post->header = !empty($_POST['header']) ? $_POST['header'] : '';//тернарный оператор
         $post->fast = !empty($_POST['fast']) ? $_POST['fast'] : '';
@@ -49,8 +49,7 @@ class PostController
 //        }
 
         if ($post->strHeader() && $post->strFast()) {
-
-            require_once __DIR__ . '/../model/DataBase.php';
+            
             $database = new DataBase();
 
             $sql = $post->prepareInsertSQL();

@@ -4,6 +4,7 @@ namespace controller;
 
 
 use model\DataBase;
+use model\User;
 use PDO;
 
 
@@ -15,12 +16,10 @@ class RegistrationController
         if (empty($_POST)) {
             include __DIR__ . '/../view/registration.php';
         }
+        
 
 
-        require_once __DIR__ . '/../model/User.php';
-
-
-        $user = new \model\User();
+        $user = new User();
 
         $user->login = !empty($_POST['login']) ? $_POST['login'] : '';
         $user->repeatPassword = !empty($_POST['repeatPassword']) ? $_POST['repeatPassword'] : '';
@@ -49,7 +48,6 @@ class RegistrationController
         }
 
         if ($user->isPasswordValid() && $user->isRepeatPassword() && $user->isAgeValid()) {
-            require_once __DIR__ . '/../model/DataBase.php';
 
             $database = new DataBase();
             $sql = $user->prepareInsertSQL();

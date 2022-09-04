@@ -2,6 +2,8 @@
 
 namespace controller;
 
+use model\User;
+use model\DataBase;
 use PDO;
 
 class LoginController
@@ -13,15 +15,11 @@ class LoginController
         if (empty($_POST)) {
             include '../view/login.php';
         } else {
-            require_once __DIR__ . '/../model/User.php';
-            $user = new \model\User();
+            $user = new User();
             $user->login = !empty($_POST['login']) ? $_POST['login'] : '';
             $user->password = !empty($_POST['password']) ? $_POST['password'] : '';
 
-                //подключение к БД
-            require_once __DIR__ . '/../model/DataBase.php';
-
-            $database = new \model\DataBase();
+            $database = new DataBase();
 
             $sql = "SELECT login FROM users WHERE login = :login";
 
