@@ -16,10 +16,10 @@ class DataBase
 
     public function execute($sql, $parameters)
     {
-        $stmt = $this->dbh->prepare($sql);
-        $result = $stmt->execute($parameters);
+        $query = $this->dbh->prepare($sql);
+        $query->execute($parameters);
 
-        return $result;
+        return $query;
     }
     
 

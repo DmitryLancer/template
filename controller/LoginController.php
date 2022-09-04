@@ -23,10 +23,10 @@ class LoginController
 
             $database = new \model\DataBase();
 
+            $sql = "SELECT login FROM users WHERE login = :login";
 
-            $data1 = array('login' => $user->login);
-            $query = $database->dbh->prepare("SELECT login FROM users WHERE login = :login");
-            $query->execute($data1);
+            $paramsLogin = array('login' => $user->login);
+            $query = $database->execute($sql, $paramsLogin);
             $result = $query->fetchAll();
             //var_dump($data);
             $nnn = 0;
@@ -39,9 +39,10 @@ class LoginController
                 echo "Ошибка логина!";
             }
 
-            $data2 = array('password' => $user->password);
-            $query = $database->dbh->prepare("SELECT password FROM users WHERE password = :password");
-            $query->execute($data2);
+            $paramsPassword = array('password' => $user->password);
+            $sql = "SELECT password FROM users WHERE password = :password";
+
+            $query = $database->execute($sql, $paramsPassword);
             $result = $query->fetchAll();
             echo '<br>';
             if (count($result)) {
@@ -53,7 +54,7 @@ class LoginController
                 echo "Ошибка пароля!";
             }
             if ($nnn == 1 && $mmm == 1) {
-                print_r($data1['login']);
+                print_r($paramsLogin['login']);
                 echo '! Вы успешно прошли авторизацию!';
             }
         }
