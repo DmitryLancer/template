@@ -16,14 +16,16 @@ class LoginController
             require_once __DIR__ . '/../model/User.php';
             $user = new \model\User();
             $user->login = !empty($_POST['login']) ? $_POST['login'] : '';
-            $password = !empty($_POST['password']) ? $_POST['password'] : '';
+            $user->password = !empty($_POST['password']) ? $_POST['password'] : '';
 
                 //подключение к БД
-            $db = new PDO('mysql:host=localhost; dbname=template', 'root', 'root');
+            require_once __DIR__ . '/../model/DataBase.php';
+
+            $database = new \model\DataBase();
 
 
             $data1 = array('login' => $user->login);
-            $query = $db->prepare("SELECT login FROM users WHERE login = :login");
+            $query = $database->dbh->prepare("SELECT login FROM users WHERE login = :login");
             $query->execute($data1);
             $result = $query->fetchAll();
             //var_dump($data);
@@ -37,8 +39,8 @@ class LoginController
                 echo "Ошибка логина!";
             }
 
-            $data2 = array('password' => $password);
-            $query = $db->prepare("SELECT password FROM users WHERE password = :password");
+            $data2 = array('password' => $user->password);
+            $query = $database->dbh->prepare("SELECT password FROM users WHERE password = :password");
             $query->execute($data2);
             $result = $query->fetchAll();
             echo '<br>';
